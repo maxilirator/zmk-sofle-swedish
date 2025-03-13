@@ -1,1 +1,1 @@
-# xmk-config
+# zmk-config
