@@ -1,0 +1,43 @@
+# Build artifacts
+/build/
+/out/
+/bin/
+/dist/
+*.o
+*.obj
+*.elf
+*.bin
+*.hex
+*.map
+
+# CMake and Make build files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Ninja build files
+.ninja_log
+.ninja_deps
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Editor directories and temporary files
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# System files
+.DS_Store
+.env
+
+# Build Directory
+zmk-compile-pipeline/
