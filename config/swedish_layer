@@ -1,0 +1,16 @@
+        swedish_layer {
+            display-name = "swedish"
+// ----------------------------------------------------------------------------------------------------------------------------
+// |        |         |         |         |         |         |                  |      |      |       |      |       |       |
+// |        |         |         |         |         |         |                  |      |      |       |      |       |   Å   |
+// |        |         |         |         |         |         |                  |      |      |       |      |   Ö   |   Ä   |
+// |        |         |         |         |         |         |         | |      |      |      |       |      |       |       |
+//                    |         |         |         |         |         | |      |      |      |       |      |
+            bindings = <
+&trans &trans &trans &trans &trans &trans                            &trans &trans &trans &trans &trans        &trans
+&trans &trans &trans &trans &trans &trans                            &trans &trans &trans &trans &trans        &kp U(0x00C5) 
+&trans &trans &trans &trans &trans &trans                            &trans &trans &trans &trans &kp U(0x00D6) &kp U(0x00C4) 
+&trans &trans &trans &trans &trans &trans                            &trans &trans &trans &trans &trans        &trans
+              &trans &trans &trans &trans &trans           &trans  &trans &trans &trans &trans
+            >;
+        };
