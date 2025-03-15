@@ -31,39 +31,45 @@
     };
 
     //Macros
-    behaviors  {
-        compatible = "zmk,combos";
-        dwrd: macro { // Delete word
+    macros  {
+        dwrd: dwrd { // Delete word
+            compatible = "zmk,behavior-macro";
             label = "CTRL+DEL";  // Change these positions to match your desired keys
             tap-ms = <0>;
             bindings = <&kp LCTL &kp DEL>;
         };
-        bwrd: macro { // backsapce word
+        bwrd: bwrd { // backsapce word
+            compatible = "zmk,behavior-macro";
             label = "CTRL+BACKSPACE";
             tap-ms = <0>;
             bindings = <&kp LCTL &kp BSPC>;
         };
-        rmln: macro { // remove line
+        rmln: rmln { // remove line
+            compatible = "zmk,behavior-macro";
             label = "CTRL+X";
             tap-ms = <0>;
             bindings = <&kp LCTL &kp X>;
         };
-        top: macro { // top of document
+        top: top { // top of document
+            compatible = "zmk,behavior-macro";
             label = "CTRL+HOME";
             tap-ms = <0>;
             bindings = <&kp LCTL &kp HOME>;
         };
-        bottom: macro { // bottom of document
+        bottom: bottom { // bottom of document
+            compatible = "zmk,behavior-macro";
             label = "CTRL+END";
             tap-ms = <0>;
             bindings = <&kp LCTL &kp END>;
         };
-        wrdl: macro { // Jump one word left
+        wrdl: wrdl { // Jump one word left
+            compatible = "zmk,behavior-macro";
             label = "CTRL+LEFT";
             tap-ms = <0>;
             bindings = <&kp LCTL &kp LEFT>;
         };
-        wrdr: macro { // Jump one word right
+        wrdr: wrdr { // Jump one word right
+            compatible = "zmk,behavior-macro";
             label = "CTRL+RIGHT";
             tap-ms = <0>;
             bindings = <&kp LCTL &kp RIGHT>;
