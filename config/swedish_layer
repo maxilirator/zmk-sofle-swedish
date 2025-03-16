@@ -14,3 +14,68 @@
               &trans &trans &trans &trans &trans           &trans  &trans &trans &trans &trans
             >;
         };
+
+
+
+
+        lower_layer {
+          display-name = "lower";
+
+          // TODO: Some binds are waiting for shifted keycode support.
+          // ------------------------------------------------------------------------------------------------------------
+          // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8  |  F9  |  F10 |  F11  |  F12   |
+          // |   `   |  !  |  @  |  #   |  |   |  &   |                   |  7   |  8   |  9   |  -   |   /   |   ^    |
+          // |   "   |  %  |  {  |  [   |  (   |  <   |                   |  4   |  5   |  6   |  +   |   *   | BCKSPC |
+          // |   '   |  $  |  }  |  ]   |  (   |  >   |      |     |      |  1   |  2   |  3   |  .   |   =   | ENTER  |
+          //               |  ?  |  _   |  ;   |      |      |     |      |      |  \   |  :   |  ¨   |
+
+          bindings = <
+&kp F1     &kp F2     &kp F3     &kp F4     &kp F5    &kp F6                      &kp F7     &kp F8     &kp F9     &kp F10       &kp F11          &kp F12
+&kp GRAVE  &kp EXCL   &kp AT     &kp HASH   &kp N4    &kp AMPS                    &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS  &kp KP_DIVIDE    &kp CARET
+&kp DQT    &kp PRCNT  &kp LBRC   &kp LBKT   &kp LPAR  &kp LT                      &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS   &kp KP_MULTIPLY  &kp BSPC
+&kp APOS   &kp DLLR   &kp RBRC   &kp RBKT   &kp RPAR  &kp GT    &trans    &trans  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT    &kp KP_EQUAL     &kp KP_ENTER
+                    &kp QMARK  &kp UNDER  &kp SEMI  &trans    &trans    &trans  &kp BSLH   &kp COLON  &trans
+          >;
+
+          sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN  &inc_dec_kp PG_UP PG_DN>;
+      };
+
+      //       raise_layer {
+      //          display-name = "raise";
+      // ------------------------------------------------------------------------------------------------------------
+      // | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5  |                | PRCNT | CALC |   TOP  | INS  |      | BOOT |
+      // |       | INS  | PSCR | GUI   |       |       |                | BWRD  | BSPC |    ^   | DEL  | DWRD | RSET |
+      // |       | ALT  | CTRL | STOP  | PLAY  | PG_UP |                | DROW  |   <- |    v   |  ->  |      |      |
+      // |       | UNDO | CUT  | COPY  | PASTE | PG_DN |      |  |      | HOME  | WRDL | BOTTOM | WRDR | END  |      |
+      //                |      |       |       |       |      |    |      |       |      |       |      |
+      //            bindings = <
+      //&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                  &kp PSCRN     &kp K_CALC   &kp LC(HOME) &kp INS       &none       &bootloader 
+      //&trans     &kp INS      &kp PSCRN    &kp K_CMENU  &trans       &trans                        &kp LC(BSPC)  &kp BSPC     &kp UP       &kp DEL       &kp LC(DEL) &sys_reset
+      //&trans     &kp LALT     &kp LCTRL    &kp STOP     &kp PLAY     &kp PG_UP                     &kp LC(X)     &kp LEFT     &kp DOWN     &kp RIGHT     &none       &none
+      //&trans     &kp LC(Z)    &kp LC(X)    &kp LC(C)    &kp LC(V)    &kp PG_DN     &trans  &trans  &kp HOME      &kp LC(LEFT) &kp LC(END)  &kp LC(RIGHT) &kp END     &trans
+      //                        &trans       &trans       &trans       &trans        &trans  &trans  &trans    &trans   &trans     &trans
+      //            >;
+      //            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+      //
+      //        };
+
+      adjust_layer {
+          display-name = "adjust";
+
+          // ----------------------------------------------------------------------------------------------------------------------------
+          // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
+          // | EXTPWR | RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
+          // | STULOK | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
+          // |        |         |         |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
+          //                    |         |         |         |         |         | |      |      |      |       |      |
+
+          bindings = <
+&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none  &none  &none  &none  &none
+&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none  &none  &none  &none  &none
+&studio_unlock     &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none  &none  &none  &none  &none
+&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &none  &none  &none  &none  &none
+                                  &none            &none            &none            &none            &none              &none  &none  &none  &none  &none
+          >;
+      };
+  };
+};
