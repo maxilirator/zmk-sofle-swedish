@@ -15,19 +15,18 @@
 #define AE APOSTROPHE
 #define OE SEMICOLON
 #define LSBS LSHIFT BACKSPACE
-#defien RABS RALT BACKSPACE
+#define RABS RALT BACKSPACE
 #define LSSP LSHIFT SPACE
 #define LSRE LSHIFT RETURN
-#deifne RATA RALT TAB
+#define RATA RALT TAB
 
 / {
-
-
     keymap {
-      compatible = "zmk,keymap";
-      default_layer {
-      display-name = "default";    
-        bindings = <
+        // Activate ADJUST layer by pressing raise and lower
+        compatible = "zmk,keymap";
+        default_layer {
+        display-name = "default";    
+          bindings = <
 // ╭───────────┬───────────┬───────────┬────────────┬────────────┬────────────╮                               ╭───────────┬─────────────┬─────────────┬─────────────┬────────────┬────────────╮
       &kp ESC     &kp N1      &kp N2       &kp N3       &kp N4      &kp N5                                       &kp N6       &kp N7        &kp N8        &kp N9        &kp N0      &kp MINUS
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
@@ -39,8 +38,8 @@
 // ╰───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╚════════════╝ ╚════════════╝ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────╯
                  &kp SQT     &kp GRAVE    &kp LGUI    &mt RABS      &mt RATA                                     &mt LSRE    &mt LSSP      &kp K_APP     &kp TILDE     &kp PIPE
 //             ╰───────────┴───────────┴────────────┴────────────┴────────────╯                               ╰───────────┴─────────────┴─────────────┴─────────────┴────────────╯
-        >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
-      };
+          >;
+          sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        };
     };
 };
