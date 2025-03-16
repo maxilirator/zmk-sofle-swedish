@@ -1,4 +1,4 @@
-#define KGRAVE ZMK_HID_USAGE(HID_USAGE_KEY, 0x35)
+#define KGRAVE (ZMK_HID_USAGE(HID_USAGE_KEY, 0x35))
 
 &rotary_encoder0 {
     steps = <1>;
