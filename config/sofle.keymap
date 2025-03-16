@@ -72,23 +72,23 @@
         };
 
         raise_layer {
-            display-name = "raise";
+           display-name = "raise";
 // ------------------------------------------------------------------------------------------------------------
 // | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5  |                | PRCNT | CALC |   TOP  | INS  |      | BOOT |
 // |       | INS  | PSCR | GUI   |       |       |                | BWRD  | BSPC |    ^   | DEL  | DWRD | RSET |
 // |       | ALT  | CTRL | STOP  | PLAY  | PG_UP |                | DROW  |   <- |    v   |  ->  |      |      |
 // |       | UNDO | CUT  | COPY  | PASTE | PG_DN |      |  |      | HOME  | WRDL | BOTTOM | WRDR | END  |      |
 //                |      |       |       |       |      |  |      |       |      |       |      |
-            bindings = <
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                  &kp PSCRN     &kp K_CALC   &kp HOME &kp INS       &none  &bootloader 
-&trans     &kp INS      &kp PSCRN    &kp K_CMENU  &trans       &trans                        &kp LC(BSPC)  &kp BSPC     &kp UP       &kp DEL       &kp LC(DEL) &sys_reset
-&trans     &kp LALT     &kp LCTRL    &kp STOP     &kp PLAY     &kp PG_UP                     &kp LC(X)     &kp LEFT     &kp DOWN     &kp RIGHT     &none  &none
-&trans     &kp LC(Z)    &kp LC(X)    &kp LC(C)    &kp LC(V)    &kp PG_DN     &trans  &trans  &kp HOME      &kp LC(LEFT) &kp LC(END)  &kp LC(RIGHT) &kp END &trans
-                        &trans       &trans       &trans       &trans        &trans  &trans  &trans    &trans   &trans     &trans
-            >;
+//            bindings = <
+//&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                  &kp PSCRN     &kp K_CALC   &kp LC(HOME) &kp INS       &none       &bootloader 
+//&trans     &kp INS      &kp PSCRN    &kp K_CMENU  &trans       &trans                        &kp LC(BSPC)  &kp BSPC     &kp UP       &kp DEL       &kp LC(DEL) &sys_reset
+//&trans     &kp LALT     &kp LCTRL    &kp STOP     &kp PLAY     &kp PG_UP                     &kp LC(X)     &kp LEFT     &kp DOWN     &kp RIGHT     &none       &none
+//&trans     &kp LC(Z)    &kp LC(X)    &kp LC(C)    &kp LC(V)    &kp PG_DN     &trans  &trans  &kp HOME      &kp LC(LEFT) &kp LC(END)  &kp LC(RIGHT) &kp END     &trans
+//                        &trans       &trans       &trans       &trans        &trans  &trans  &trans    &trans   &trans     &trans
+//            >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-
+//            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+//
         };
 
         adjust_layer {
@@ -110,3 +110,10 @@
 
     };
 };
+
+
+// ╭───────────┬───────────┬───────────┬────────────┬────────────╮ ╭───────────┬─────────────┬─────────────┬────────────┬────────────╮
+// ├───────────┼───────────┼───────────┼────────────┼────────────┤ ├───────────┼─────────────┼─────────────┼────────────┼────────────┤
+// ├───────────┼───────────┼───────────┼────────────┼────────────┤ ├───────────┼─────────────┼─────────────┼────────────┼────────────┤
+// ╰───────────┴───────────┼───────────┼────────────┼────────────┤ ├───────────┼─────────────┼─────────────┼────────────┴────────────╯
+//                         ╰───────────┴────────────┴────────────╯ ╰───────────┴─────────────┴─────────────╯
