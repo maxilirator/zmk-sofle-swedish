@@ -1,3 +1,11 @@
+/ {
+    behaviors {
+        ucode: ucode {
+            compatible = "zmk,unicode";
+            #binding-cells = <1>;
+        };
+    };
+};
 
 &rotary_encoder0 {
     steps = <1>;
@@ -6,8 +14,3 @@
 &rotary_encoder1 {
     steps = <1>;
 };
-
-ucode: ucode {
-            compatible = "zmk,unicode";
-            #binding-cells = <1>;
-        };
