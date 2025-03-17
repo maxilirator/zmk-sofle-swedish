@@ -1,4 +1,8 @@
 / {
+    aliases {
+        ucode = &ucode;
+    };
+
     behaviors {
         ucode: ucode {
             compatible = "zmk,unicode";
