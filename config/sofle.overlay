@@ -6,3 +6,8 @@
 &rotary_encoder1 {
     steps = <1>;
 };
+
+ucode: ucode {
+            compatible = "zmk,unicode";
+            #binding-cells = <1>;
+        };

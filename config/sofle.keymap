@@ -24,11 +24,9 @@
 
 / {
     behaviors {
-        ucode: ucode {
-            compatible = "zmk,unicode";
-        };
+        
     };
-    
+
     keymap {
         // Activate ADJUST layer by pressing raise and lower
         compatible = "zmk,keymap";
