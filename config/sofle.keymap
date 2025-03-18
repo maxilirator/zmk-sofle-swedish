@@ -25,7 +25,7 @@
     behaviors {
         modtap_acute: modtap_acute {
             compatible = "zmk,mod-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             mods = <LSHIFT>;
             tap = <EQUAL>;
         };
