@@ -11,7 +11,6 @@
 #include <dt-bindings/zmk/rgb.h>
 
 #define M_FSLH LS(7)
-#define M_ACUTE MT(LSHIFT, EQUAL)   
 #define BASE 0
 #define AO LBKT
 #define AE APOSTROPHE
@@ -24,6 +23,13 @@
 
 / {
     behaviors {
+        modtap_acute: modtap_acute {
+            compatible = "zmk,mod-tap";
+            #binding-cells = <2>;
+            mods = <LSHIFT>;
+            tap = <EQUAL>;
+        };
+        
         tdA: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -63,7 +69,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp AO>, <&mt M_ACUTE>;
+            bindings = <&kp AO>, <<&modtap_acute>>;
         };
     };
 
