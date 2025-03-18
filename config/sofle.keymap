@@ -30,11 +30,25 @@
             bindings = <&kp A>, <&kp QMARK>;
         };
 
-        tdE: tap_dance_0 {
+        tdE: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp E>, <&kp PLUS>;
+        };
+
+        tdU: tap_dance_2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp U>, <&kp PIPE2>;
+        };
+
+        tdOE: tap_dance_3 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp OE>, <&kp APOS>;
         };
     };
 
@@ -49,7 +63,7 @@
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
     &kp TILDE2     &kp Q       &kp W        &tdE         &kp R       &kp T                                        &kp Y        &kp U         &kp I          &kp O        &kp P       &kp AO
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
-     &mt LSBS      &tdA        &kp S        &kp D        &kp F       &kp G                                        &kp H        &kp J         &kp K          &kp L        &kp OE      &kp AE
+     &mt LSBS      &tdA        &kp S        &kp D        &kp F       &kp G                                        &kp H        &kp J         &kp K          &kp L        &tdOE      &kp AE
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╔════════════╗ ╔════════════╗ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
      &kp LCTRL    &kp Z       &kp X        &kp C        &kp V       &kp B         &kp C_MUTE      &kp C_PP       &kp N        &kp M        &kp COMMA      &kp DOT     &kp M_FSLH    &kp BSLH
 // ╰───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╚════════════╝ ╚════════════╝ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────╯
