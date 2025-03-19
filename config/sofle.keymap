@@ -10,26 +10,27 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/rgb.h>
 
-#define M_FSLH LS(7)
-#define BASE 0
+#define _PG GRAVE
+#define _PLUS MINUS
+#define _ACCENT EQUAL
 #define AO LBKT
-#define AE APOSTROPHE
+#define _DCT RIGHT_BRACKET  // for DIAERSIS CIRCUMFLEX TILDE
 #define OE SEMICOLON
+#define AE APOSTROPHE
+#define _APS BACKSLASH
+#define _LGP NON_US_BACKSLASH // Less Greater Pipe
+#define _MINUS SLASH
 #define LSBS LSHIFT BACKSPACE
 #define RABS RALT BACKSPACE
 #define LSSP LSHIFT SPACE
 #define LSRE LSHIFT RETURN
 #define RATA RALT TAB
+#define M_FSLH LS(7)
+
+#define BASE 0
 
 / {
     behaviors {
-        modtap_acute: modtap_acute {
-            compatible = "zmk,mod-tap";
-            #binding-cells = <0>;
-            mods = <LSHIFT>;
-            tap = <EQUAL>;
-        };
-        
         tdA: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -69,7 +70,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp AO>, <&modtap_acute>;
+            bindings = <&kp AO>, <&kp _PLUS>;
         };
     };
 
@@ -80,13 +81,13 @@
         display-name = "default";    
           bindings = <
 // ╭───────────┬───────────┬───────────┬────────────┬────────────┬────────────╮                               ╭───────────┬─────────────┬─────────────┬─────────────┬────────────┬────────────╮
-      &kp ESC     &kp N1      &kp N2       &kp N3       &kp N4      &kp N5                                       &kp N6       &kp N7        &kp N8        &kp N9        &kp N0     &kp FSLH
+      &kp ESC     &kp N1      &kp N2       &kp N3       &kp N4      &kp N5                                       &kp N6       &kp N7        &kp N8        &kp N9        &kp N0     &kp _MINUS
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
     &kp TILDE2     &kp Q       &kp W        &tdE         &kp R       &kp T                                        &kp Y        &kp U         &kp I          &kp O        &kp P       &tdAO
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
      &mt LSBS      &tdA        &kp S        &kp D        &kp F       &kp G                                        &kp H        &kp J         &kp K          &kp L        &tdOE       &tdAE
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╔════════════╗ ╔════════════╗ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
-     &kp LCTRL    &kp Z       &kp X        &kp C        &kp V       &kp B         &kp C_MUTE      &kp C_PP       &kp N        &kp M        &kp COMMA      &kp DOT     &kp M_FSLH    &kp BSLH
+     &kp LCTRL    &kp Z       &kp X        &kp C        &kp V       &kp B         &kp C_MUTE      &kp C_PP       &kp N        &kp M        &kp COMMA      &kp DOT     &kp M_FSLH   &kp _PLUS
 // ╰───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╚════════════╝ ╚════════════╝ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────╯
                  &kp BSLH    &kp PLUS    &kp LGUI    &mt RABS      &mt RATA                                     &mt LSRE    &mt LSSP      &kp K_APP     &kp TILDE     &kp PIPE
 //             ╰───────────┴───────────┴────────────┴────────────┴────────────╯                               ╰───────────┴─────────────┴─────────────┴─────────────┴────────────╯
