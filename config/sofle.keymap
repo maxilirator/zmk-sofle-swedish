@@ -22,10 +22,11 @@
 #define _MINUS SLASH
 #define LSBS LSHIFT BACKSPACE
 #define RABS RALT BACKSPACE
+#define LABS LALT BACKSPACE
 #define LSSP LSHIFT SPACE
 #define LSRE LSHIFT RETURN
 #define RATA RALT TAB
-#define M_FSLH LS(7)
+#define M_FSLH LS(N7)
 
 #define BASE 0
 
@@ -73,6 +74,18 @@
             bindings = <&kp AO>, <&kp _PLUS>;
         };
     };
+    
+    macros {
+        m_bslh: m_bslh {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp RALT>
+                , <&macro_tap &kp MINUS>
+                , <&macro_release &kp RALT>
+                ;
+        };
+    };
 
     keymap {
         // Activate ADJUST layer by pressing raise and lower
@@ -87,9 +100,9 @@
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
      &mt LSBS      &tdA        &kp S        &kp D        &kp F       &kp G                                        &kp H        &kp J         &kp K          &kp L        &tdOE       &tdAE
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╔════════════╗ ╔════════════╗ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
-     &kp LCTRL    &kp Z       &kp X        &kp C        &kp V       &kp B         &kp C_MUTE      &kp C_PP       &kp N        &kp M        &kp COMMA      &kp DOT     &kp M_FSLH   &kp _PLUS
+     &kp LCTRL    &kp Z       &kp X        &kp C        &kp V       &kp B         &kp C_MUTE      &kp C_PP       &kp N        &kp M        &kp COMMA      &kp DOT     &kp M_FSLH   &m_bslh
 // ╰───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╚════════════╝ ╚════════════╝ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────╯
-                 &kp BSLH    &kp PLUS    &kp LGUI    &mt RABS      &mt RATA                                     &mt LSRE    &mt LSSP      &kp K_APP     &kp TILDE     &kp PIPE
+                 &kp LALT    &kp PLUS    &kp LGUI    &mt LABS      &mt RATA                                     &mt LSRE    &mt LSSP      &kp K_APP     &kp TILDE     &kp PIPE
 //             ╰───────────┴───────────┴────────────┴────────────┴────────────╯                               ╰───────────┴─────────────┴─────────────┴─────────────┴────────────╯
           >;
           sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
