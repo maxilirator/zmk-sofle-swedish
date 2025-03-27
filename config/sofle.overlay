@@ -1,5 +1,4 @@
 
-
 &rotary_encoder0 {
     steps = <1>;
 };
@@ -7,3 +6,5 @@
 &rotary_encoder1 {
     steps = <1>;
 };
+
+
