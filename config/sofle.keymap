@@ -84,9 +84,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp RALT>
+                = <&macro_press &kp LALT>
                 , <&macro_tap &kp MINUS>
-                , <&macro_release &kp RALT>
+                , <&macro_release &kp LALT>
                 ;
         };
         m_tilde: m_tilde {
@@ -95,9 +95,9 @@
             wait-ms = <40>;
             tap-ms = <40>;
             bindings
-                = <&macro_press &kp RALT>
+                = <&macro_press &kp LALT>
                 , <&macro_tap &kp KP_N1 &kp KP_N2 &kp KP_N6>
-                , <&macro_release &kp RALT>
+                , <&macro_release &kp LALT>
                 ;
         };
         m_apr: m_apr {
@@ -106,9 +106,9 @@
             wait-ms = <40>;
             tap-ms = <40>;
             bindings
-                = <&macro_press &kp RALT>
+                = <&macro_press &kp LALT>
                 , <&macro_tap &kp KP_N9 &kp KP_N6>
-                , <&macro_release &kp RALT>
+                , <&macro_release &kp LALT>
                 ;
         };
         m_kb: m_kb {
@@ -117,9 +117,9 @@
             wait-ms = <40>;
             tap-ms = <40>;
             bindings
-                = <&macro_press &kp RALT>
+                = <&macro_press &kp LALT>
                 , <&macro_tap &kp KP_N6 &kp KP_N4>
-                , <&macro_release &kp RALT>
+                , <&macro_release &kp LALT>
                 ;
         };
         m_tk: m_tk {
