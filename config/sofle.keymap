@@ -27,11 +27,12 @@
 #define LSRE LSHIFT RETURN
 #define RATA RALT TAB
 #define M_FSLH LS(N7)
-#define _LL MOVE BACKSPACE
+#define _LL LOWER BACKSPACE
+#define _RL RAISE SPACE
 
 #define BASE 0
-#define MOVE 1
-#define CODE 2
+#define RAISE 1
+#define LOWER 2
 
 / {
     behaviors {
@@ -127,12 +128,12 @@
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╔════════════╗ ╔════════════╗ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
      &kp LCTRL    &kp Z       &kp X        &kp C        &kp V       &kp B         &kp C_MUTE      &kp C_PP       &kp N        &kp M        &kp COMMA      &kp DOT     &kp M_FSLH   &m_bslh
 // ╰───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╚════════════╝ ╚════════════╝ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────╯
-                 &kp LALT    &kp PLUS    &kp LGUI      &lt _LL      &mt RATA                                    &mt LSRE     &mt LSSP      &kp K_APP     &kp TILDE     &kp PIPE
+                 &kp LALT    &kp PLUS    &kp LGUI      &lt _LL      &mt RATA                                    &mt LSRE     &lt _RL      &kp K_APP     &kp TILDE     &kp PIPE
 //             ╰───────────┴───────────┴────────────┴────────────┴────────────╯                               ╰───────────┴─────────────┴─────────────┴─────────────┴────────────╯
           >;
           sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
-move_layer {
+raise_layer {
   display-name = "Movment";    
     bindings = <
 // ╭───────────┬───────────┬───────────┬────────────┬────────────┬────────────╮                               ╭───────────┬─────────────┬─────────────┬─────────────┬────────────┬────────────╮
@@ -150,19 +151,19 @@ move_layer {
     sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
   };
 
-  code_layer {
+  lower_layer {
   display-name = "Coder";    
     bindings = <
 // ╭───────────┬───────────┬───────────┬────────────┬────────────┬────────────╮                               ╭───────────┬─────────────┬─────────────┬─────────────┬────────────┬────────────╮
- &kp F1     &kp F2      &kp F3      &kp F4        &kp F5      &kp F6                                       &kp F7       &kp F8        &kp F9        &kp F10       &kp F11      &kp F12  
+      &kp F1     &kp F2      &kp F3      &kp F4        &kp F5      &kp F6                                       &kp F7       &kp F8        &kp F9        &kp F10       &kp F11      &kp F12  
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
- &m_apr    &kp EXCL       &none       &none         &none       &none                                        &none        &none         &none         &none         &none        &none
+      &m_apr    &kp EXCL       &none       &none         &none       &none                                        &none        &none         &none         &none         &none        &none
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
- &none       &none       &none       &none         &none       &none                                        &none        &none         &none         &none         &none        &none
+      &none       &none       &none       &none         &none       &none                                        &none        &none         &none         &none         &none        &none
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╔════════════╗ ╔════════════╗ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
- &none       &none       &none       &none         &none       &none        &kp C_MUTE      &kp C_PP        &none        &none         &none         &none         &none        &none
+      &none       &none       &none       &none         &none       &none        &kp C_MUTE      &kp C_PP        &none        &none         &none         &none         &none        &none
 // ╰───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╚════════════╝ ╚════════════╝ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────╯
-             &none       &none       &none       &none         &none                                        &none        &none         &none         &none         &none         
+                  &none       &none       &none       &none         &none                                        &none        &none         &none         &none         &none         
 //             ╰───────────┴───────────┴────────────┴────────────┴────────────╯                               ╰───────────┴─────────────┴─────────────┴─────────────┴────────────╯
     >;
     sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
