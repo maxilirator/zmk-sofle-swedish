@@ -27,7 +27,7 @@
 #define LSRE LSHIFT RETURN
 #define RATA RALT TAB
 #define M_FSLH LS(N7)
-#define _LL &mo MOVE BACKSPACE
+#define _LL LT(MOVE, BACKSPACE)
 
 #define BASE 0
 #define MOVE 1
@@ -145,7 +145,7 @@
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╔════════════╗ ╔════════════╗ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
        &none       &none       &none     &kp LC(X)       &none       &none        &kp C_MUTE      &kp C_PP        &none      &kp LEFT     &kp LC(END)    &kp RIGHT      &none      &kp PG_DN
 // ╰───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╚════════════╝ ╚════════════╝ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────╯
-                   &none       &none       &none       <&mt _LL>       &none                                        &none        &none         &none         &none         &none         
+                   &none       &none       &none       &mt _LL>       &none                                        &none        &none         &none         &none         &none         
 //             ╰───────────┴───────────┴────────────┴────────────┴────────────╯                               ╰───────────┴─────────────┴─────────────┴─────────────┴────────────╯
           >;
           sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
