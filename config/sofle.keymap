@@ -89,7 +89,7 @@
                 , <&macro_release &kp RALT>
                 ;
         };
-        m_tilde: m_tilde {
+        : m_tilde {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <40>;
@@ -111,8 +111,30 @@
                 , <&macro_release &kp RALT>
                 ;
         };
+        m_kb: m_kb {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press &kp RALT>
+                , <&macro_tap &kp KP_N6 &kp KP_N4>
+                , <&macro_release &kp RALT>
+                ;
+        };
+        m_tk: m_tk {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press &kp RALT>
+                , <&macro_tap &kp KP_N0 &kp KP_N1 KP_N3 &kp KP_N6>
+                , <&macro_release &kp RALT>
+                ;
+        };
     };
-
+        
     keymap {
         // Activate ADJUST layer by pressing raise and lower
         compatible = "zmk,keymap";
@@ -126,7 +148,7 @@
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
      &mt LSBS      &tdA        &kp S        &kp D        &kp F       &kp G                                        &kp H        &kp J         &kp K          &kp L        &tdOE       &tdAE
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╔════════════╗ ╔════════════╗ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
-     &kp LCTRL    &kp Z       &kp X        &kp C        &kp V       &kp B         &kp C_MUTE      &kp C_PP       &kp N        &kp M        &kp COMMA      &kp DOT     &kp M_FSLH   &m_bslh
+     &kp LCTRL    &kp Z       &kp X        &kp C        &kp V        &kp B        &kp C_MUTE      &kp C_PP        &kp N        &kp M       &kp COMMA      &kp DOT     &kp M_FSLH   &m_bslh
 // ╰───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╚════════════╝ ╚════════════╝ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────╯
                  &kp LALT    &kp PLUS    &kp LGUI      &lt _LL      &mt RATA                                    &mt LSRE     &lt _RL      &kp K_APP     &kp TILDE     &kp PIPE
 //             ╰───────────┴───────────┴────────────┴────────────┴────────────╯                               ╰───────────┴─────────────┴─────────────┴─────────────┴────────────╯
@@ -140,13 +162,13 @@
 // ╭───────────┬───────────┬───────────┬────────────┬────────────┬────────────╮                               ╭───────────┬─────────────┬─────────────┬─────────────┬────────────┬────────────╮
       &kp F1     &kp F2      &kp F3      &kp F4        &kp F5      &kp F6                                       &kp F7       &kp F8        &kp F9        &kp F10       &kp F11      &kp F12  
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
-      &m_apr    &kp EXCL       &none       &none         &none       &none                                        &none        &none         &none         &none         &none        &none
+      &m_apr    &kp EXCL      &m_kb      &kp LS(N3)  &kp RA(PLUS)  &kp LS(N6)                                  &kp KP_PLUS    &kp KP_N7     &kp KP_N8    &kp KP_N9   &kp KP_DIVIDE    &m_tk
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
-      &none       &none       &none       &none         &none       &none                                        &none        &none         &none         &none         &none        &none
+     &kp LS(N2)  &kp LS(N5)  &kp RA(N7)  &kp RA(N8)   &kp LS(N8)   &kp NUBS                                    &kp KP_MINUS   &kp KP_N4     &kp KP_N5    &kp KP_N6  &kp KP_MULTIPLY  &kp BSPC
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╔════════════╗ ╔════════════╗ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
-      &none       &none       &none       &none         &none       &none        &kp C_MUTE      &kp C_PP        &none        &none         &none         &none         &none        &none
+     &kp BSLH    &kp LS(N5) &kp RA(N10)  &kp RA(N9)   &kp LS(N9)   &kp LS(NUBS)   &kp C_MUTE      &kp C_PP     &kp KP_EQUAL   &kp KP_N1     &kp KP_N2    &kp KP_N3    &kp KP_DOT    &kp ENTER
 // ╰───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╚════════════╝ ╚════════════╝ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────╯
-                  &none       &none       &none       &none         &none                                        &none        &none         &none         &none         &none         
+                  &none       &none       &none       &none         &none                                        &trans       &kp KP_N0      &none         &none         &none         
 //             ╰───────────┴───────────┴────────────┴────────────┴────────────╯                               ╰───────────┴─────────────┴─────────────┴─────────────┴────────────╯
         >;
         sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
