@@ -27,7 +27,7 @@
 #define LSRE LSHIFT RETURN
 #define RATA RALT TAB
 #define M_FSLH LS(N7)
-#define _LL LT(MOVE, BACKSPACE)
+#define _LL &lt MOVE BACKSPACE
 
 #define BASE 0
 #define MOVE 1
