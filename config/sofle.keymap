@@ -33,9 +33,11 @@
 #define BASE 0
 #define RAISE 2
 #define LOWER 1
+#define ADJUST 3
 
 / {
     behaviors {
+
         tdA: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -70,7 +72,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp AE>, <&kp EQUAL>;
         };
-
         tdAO: tap_dance_5 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -78,7 +79,7 @@
             bindings = <&kp AO>, <&kp _PLUS>;
         };
     };
-    
+
     macros {
         m_bslh: m_bslh {
             compatible = "zmk,behavior-macro";
@@ -134,9 +135,12 @@
                 ;
         };
     };
-        
+    
+    combos {
+ 
+    };
+       
     keymap {
-        // Activate ADJUST layer by pressing raise and lower
         compatible = "zmk,keymap";
         default_layer {
           display-name = "Swedish";    
@@ -175,7 +179,25 @@
     };
 
         raise_layer {
-          display-name = "Movment";    
+          display-name = "Movment"; 
+          bindings = <
+// ╭───────────┬───────────┬───────────┬────────────┬────────────┬────────────╮                               ╭───────────┬─────────────┬─────────────┬─────────────┬────────────┬────────────╮
+       &none       &none       &none       &none         &none       &none                                      &kp PSCRN   &kp K_CALC   &kp LC(HOME)     &kp INS       &none     &bootloader
+// ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
+       &none       &none       &none       &none         &none       &none                                        &none      &kp HOME        &kp UP       &kp END       &none        &none
+// ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
+       &none   &kp LC(BSPC)  &kp BSPC     &kp DEL    &kp LC(DEL)     &none                                        &none     &kp LC(LEFT)   &kp DOWN    &kp LC(RIGHT)    &none      &kp PG_UP
+// ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╔════════════╗ ╔════════════╗ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
+       &none       &none       &none     &kp LC(X)       &none       &none        &kp C_MUTE      &kp C_PP        &none      &kp LEFT     &kp LC(END)    &kp RIGHT      &none      &kp PG_DN
+// ╰───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╚════════════╝ ╚════════════╝ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────╯
+                   &none       &none       &none       &none         &none                                        &none        &none         &none         &none        &none         
+//             ╰───────────┴───────────┴────────────┴────────────┴────────────╯                               ╰───────────┴─────────────┴─────────────┴─────────────┴────────────╯
+        >;
+        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+    };
+
+        adjust_layer {
+          display-name = "Repeat"; 
           bindings = <
 // ╭───────────┬───────────┬───────────┬────────────┬────────────┬────────────╮                               ╭───────────┬─────────────┬─────────────┬─────────────┬────────────┬────────────╮
        &none       &none       &none       &none         &none       &none                                      &kp PSCRN   &kp K_CALC   &kp LC(HOME)     &kp INS       &none     &bootloader
