@@ -1,4 +1,4 @@
-\{
+/{
 macros {
     m_bslh: m_bslh {
         compatible = "zmk,behavior-macro";
