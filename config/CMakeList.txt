@@ -1,0 +1,1 @@
+zephyr_library_sources(config/behaviors/beh_modquad.c)

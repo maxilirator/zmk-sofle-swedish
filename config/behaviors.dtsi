@@ -1,0 +1,65 @@
+/ {
+  behaviors {
+    modquad_backslash: modquad_backslash {
+      compatible = "zmk,behavior-modquad";
+      label = "Backslash four-mod key";
+      #binding-cells = <0>;
+
+      bindings = <
+        HID_USAGE_KEY(HID_USAGE_KEY_KEYBOARD_MINUS_AND_UNDERSCORE)      // No mod (\)
+        HID_USAGE_KEY(HID_USAGE_KEY_KEYBOARD_SLASH_AND_QUESTION_MARK)   // Shift (?)
+        HID_USAGE_KEY(HID_USAGE_KEY_KEYBOARD_EQUAL_AND_PLUS)            // AltGr (+)
+        HID_USAGE_KEY(HID_USAGE_KEY_KEYBOARD_NON_US_BACKSLASH_AND_PIPE) // Shift+AltGr (|)
+      >;
+    };
+
+        macro_press: macro_press {
+        compatible = "zmk,behavior-macro";
+        label = "Macro Press";
+        #binding-cells = <2>;
+        bindings = <&kp>;
+    };
+
+
+    tdA: tap_dance_0 {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&kp A>, <&kp QMARK>;
+    };
+
+    tdE: tap_dance_1 {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&kp E>, <&kp PLUS>;
+    };
+
+    tdU: tap_dance_2 {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&kp U>, <&kp PIPE2>;
+    };
+
+    tdOE: tap_dance_3 {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&kp OE>, <&kp APOS>;
+    };
+
+    tdAE: tap_dance_4 {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&kp AE>, <&kp EQUAL>;
+    };
+    tdAO: tap_dance_5 {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&kp AO>, <&kp _PLUS>;
+    };
+  };
+};
