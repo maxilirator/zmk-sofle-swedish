@@ -38,6 +38,37 @@
 / {
     behaviors {
 
+        macro_press: macro_press {
+            compatible = "zmk,behavior-macro";
+            label = "Macro Press";
+            #binding-cells = <2>;
+            bindings = <&kp>;
+        };
+
+        m1: m1 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "Magic 1";
+            #binding-cells = <0>;
+            bindings = <
+                &macro_press RA MINUS   // general
+                &macro_press LS MINUS   // shift
+                &kp MINUS               // altgr (RALT)
+                &kp NUBS                // shift + altgr
+            >;
+        };
+
+        m2: m2 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "Magic 2";
+            #binding-cells = <0>;
+            bindings = <
+                &macro_press LS BSLH     // general
+                &kp BSLH                 // shift
+                &macro_press LS EQUAL   // altgr (RALT)
+                &kp EQUAL                // shift + altgr
+            >;
+        };
+
         tdA: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -85,9 +116,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LALT>
+                = <&macro_press &kp RALT>
                 , <&macro_tap &kp MINUS>
-                , <&macro_release &kp LALT>
+                , <&macro_release &kp RALT>
                 ;
         };
         m_tilde: m_tilde {
@@ -138,7 +169,7 @@
     
     combos {
  
-    };
+    }
        
     keymap {
         compatible = "zmk,keymap";
@@ -148,13 +179,13 @@
 // ╭───────────┬───────────┬───────────┬────────────┬────────────┬────────────╮                               ╭───────────┬─────────────┬─────────────┬─────────────┬────────────┬────────────╮
       &kp ESC     &kp N1      &kp N2       &kp N3       &kp N4      &kp N5                                       &kp N6       &kp N7        &kp N8        &kp N9        &kp N0     &kp _MINUS
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
-      &m_tilde     &kp Q       &kp W        &tdE         &kp R       &kp T                                        &kp Y        &kp U         &kp I          &kp O        &kp P       &tdAO
+     &kp RBKT     &kp Q       &kp W        &tdE         &kp R       &kp T                                        &kp Y        &kp U         &kp I          &kp O        &kp P        &kp AO
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
-     &mt LSBS      &tdA        &kp S        &kp D        &kp F       &kp G                                        &kp H        &kp J         &kp K          &kp L        &tdOE       &tdAE
+        &m2        &tdA        &kp S        &kp D        &kp F       &kp G                                        &kp H        &kp J         &kp K          &kp L       &kp OE       &kp AE
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╔════════════╗ ╔════════════╗ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
-     &kp LCTRL     &kp Z       &kp X        &kp C        &kp V        &kp B        &kp C_MUTE     &kp C_PP        &kp N        &kp M       &kp COMMA      &kp DOT    &kp M_FSLH     &m_bslh
+     &kp LCTRL     &kp Z       &kp X        &kp C        &kp V        &kp B       &kp C_MUTE     &kp C_PP         &kp N        &kp M       &kp COMMA      &kp DOT    &kp M_FSLH     &m1
 // ╰───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╚════════════╝ ╚════════════╝ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────╯
-                 &kp LALT    &kp PLUS    &kp LGUI      &lt _LL      &mt RATA                                    &mt LSRE     &lt _RL      &kp K_APP     &kp TILDE     &kp PIPE
+                 &to LOWER   &to RAISE    &to BASE      &lt _LL     &mt RATA                                     &mt LSRE     &lt _RL         &none         &none        &none
 //             ╰───────────┴───────────┴────────────┴────────────┴────────────╯                               ╰───────────┴─────────────┴─────────────┴─────────────┴────────────╯
           >;
           sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
@@ -172,7 +203,7 @@
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╔════════════╗ ╔════════════╗ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
      &kp BSLH   &kp LS(N5)  &kp RA(N0)   &kp RA(N9)   &kp LS(N9)  &kp LS(NUBS)    &kp C_MUTE      &kp C_PP    &kp KP_EQUAL   &kp KP_N1     &kp KP_N2     &kp KP_N3    &kp KP_DOT    &kp ENTER
 // ╰───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╚════════════╝ ╚════════════╝ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────╯
-                  &none       &none       &none       &none         &none                                        &trans       &kp KP_N0      &none         &none         &none         
+                 &to LOWER   &to RAISE    &to BASE      &none        &none                                       &trans      &kp KP_N0      &none         &none         &none         
 //             ╰───────────┴───────────┴────────────┴────────────┴────────────╯                               ╰───────────┴─────────────┴─────────────┴─────────────┴────────────╯
         >;
         sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
@@ -190,7 +221,7 @@
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╔════════════╗ ╔════════════╗ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
        &none       &none       &none     &kp LC(X)       &none       &none        &kp C_MUTE      &kp C_PP        &none      &kp LEFT     &kp LC(END)    &kp RIGHT      &none      &kp PG_DN
 // ╰───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╚════════════╝ ╚════════════╝ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────╯
-                   &none       &none       &none       &none         &none                                        &none        &none         &none         &none        &none         
+                 &to LOWER   &to RAISE    &to BASE     &none         &none                                        &none        &none         &none         &none        &none         
 //             ╰───────────┴───────────┴────────────┴────────────┴────────────╯                               ╰───────────┴─────────────┴─────────────┴─────────────┴────────────╯
         >;
         sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;

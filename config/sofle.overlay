@@ -6,4 +6,3 @@
 &rotary_encoder1 {
     steps = <1>;
 };
-
