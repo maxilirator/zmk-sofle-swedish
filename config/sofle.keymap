@@ -38,6 +38,20 @@
 #define ADJUST 3
 
 / {
+    behaviors {
+        modquad_backslash: mmodquad_backslash {
+            compatible = "zmk,behavior-modquad";
+            label = "Backslash four-mod key";
+            #binding-cells = <0>;
+            bindings = <
+                &kp MINUS
+                &kp QMARK
+                &kp PLUS
+                &kp PIPE2
+            >;
+        };
+  };
+
     keymap {
         compatible = "zmk,keymap";
         default_layer {
