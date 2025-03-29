@@ -1,1 +1,2 @@
-zephyr_library_sources(config/behaviors/beh_modquad.c)
+zephyr_library_sources(behaviors/beh_swe_fourway.c)
+dtc_overlay_src += config/behaviors/behavior_modquad.yaml

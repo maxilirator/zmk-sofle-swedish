@@ -1,0 +1,14 @@
+compatible: "zmk,behavior-modquad"
+description: Custom behavior for modifier-aware 4-way output
+include: one_param.yaml
+
+properties:
+  bindings:
+    type: phandle-array
+    required: true
+    description: |
+      List of 4 keycodes to use for:
+        1. No modifiers
+        2. Shift
+        3. AltGr
+        4. Shift + AltGr
