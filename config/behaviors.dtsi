@@ -6,11 +6,11 @@
       #binding-cells = <0>;
 
       bindings = <
-        HID_USAGE_KEY(HID_USAGE_KEY_KEYBOARD_MINUS_AND_UNDERSCORE)      // No mod (\)
-        HID_USAGE_KEY(HID_USAGE_KEY_KEYBOARD_SLASH_AND_QUESTION_MARK)   // Shift (?)
-        HID_USAGE_KEY(HID_USAGE_KEY_KEYBOARD_EQUAL_AND_PLUS)            // AltGr (+)
-        HID_USAGE_KEY(HID_USAGE_KEY_KEYBOARD_NON_US_BACKSLASH_AND_PIPE) // Shift+AltGr (|)
-      >;
+        0x2D  // Minus (\)
+        0x38  // Slash (?)
+        0x2E  // Equal (+)
+        0x64  // Non-US Backslash (|)
+        >;
     };
 
         macro_press: macro_press {
