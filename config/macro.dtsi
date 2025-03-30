@@ -1,11 +1,5 @@
 /{
 macros {
-    macro_press: macro_press {
-      compatible = "zmk,behavior-macro";
-      label = "Macro Press";
-      #binding-cells = <2>;
-      bindings = <&kp>;
-    };
     m_bslh: m_bslh {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
