@@ -9,5 +9,7 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-  self:
-    path: config
+self:
+  path: config
+  zephyr-include: true
+
