@@ -1,9 +1,23 @@
-name: Build ZMK firmware
-on: [push, pull_request, workflow_dispatch]
+name: Build ZMK
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-env:
-  DTC_OVERLAY_FILE: config/behaviors/behavior_modquad.yaml
+      - name: Build ZMK
+        uses: zmkfirmware/zmk-docker-build@main
+        with:
+          board: "nice_nano_v2"
+          shield: "sofle_left sofle_right"
+          zmk-config: "config"
+          build-args: |
+            -DZMK_EXTRA_MODULES=$GITHUB_WORKSPACE/config
+            -DCONFIG_ZMK_BUILD_COPY_CUSTOM_BINDINGS=y
