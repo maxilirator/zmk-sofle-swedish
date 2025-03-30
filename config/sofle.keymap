@@ -37,12 +37,7 @@
 
 / {
     behaviors {
-//       macro_press: macro_press {
-//              compatible = "zmk,behavior-macro";
-//              #binding-cells = <2>;
-//              bindings = <&kp>;
-//      };
-       modquad_backslash: mmodquad_backslash {
+       modquad_backslash: modquad_backslash {
               compatible = "zmk,behavior-modquad";
               #binding-cells = <0>;
               bindings = <
