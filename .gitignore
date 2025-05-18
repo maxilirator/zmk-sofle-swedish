@@ -43,3 +43,4 @@ __pycache__/
 zmk-compile-pipeline/
 hut1_12.pdf
 hut1_21.pdf
+packages.microsoft.gpg
