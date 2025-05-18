@@ -36,6 +36,19 @@
 #define ADJUST 3
 
 / {
+    behaviors {
+       modquad_backslash: modquad_backslash {
+              compatible = "zmk,behavior-modquad";
+              #binding-cells = <0>;
+              bindings = <
+                     &kp MINUS
+                     &kp QMARK
+                     &kp PLUS
+                     &kp PIPE2
+              >;
+       };
+  };
+
   macros {
     m_bslh: m_bslh {
        compatible = "zmk,behavior-macro";
@@ -104,7 +117,7 @@
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤                               ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
      &kp LSHFT    &kp A        &kp S        &kp D       &kp F       &kp G                                        &kp H        &kp J         &kp K          &kp L       &kp OE       &kp AE
 // ├───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╔════════════╗ ╔════════════╗ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────┤
-     &kp LCTRL     &kp Z       &kp X        &kp C        &kp V        &kp B       &kp C_MUTE     &kp C_PP         &kp N        &kp M       &kp COMMA      &kp DOT    &kp M_FSLH    &m_bslh
+     &kp LCTRL     &kp Z       &kp X        &kp C        &kp V        &kp B       &kp C_MUTE     &kp C_PP         &kp N        &kp M       &kp COMMA      &kp DOT    &kp M_FSLH    &modquad_backslash
 // ╰───────────┼───────────┼───────────┼────────────┼────────────┼────────────┤ ╚════════════╝ ╚════════════╝ ├───────────┼─────────────┼─────────────┼─────────────┼────────────┼────────────╯
                  &to LOWER   &to RAISE    &to BASE      &lt _LL     &mt RATA                                     &mt LSRE     &lt _RL         &none         &none        &none
 //             ╰───────────┴───────────┴────────────┴────────────┴────────────╯                               ╰───────────┴─────────────┴─────────────┴─────────────┴────────────╯
